@@ -4,7 +4,7 @@ namespace Laraerp\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class CidadeServiceProvider extends ServiceProvider {
+class CidadesServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.
@@ -23,7 +23,7 @@ class CidadeServiceProvider extends ServiceProvider {
         $database = __DIR__ . $back . $back . DIRECTORY_SEPARATOR . 'database' . DIRECTORY_SEPARATOR;
 
         $this->publishes([
-            $database . 'migrations/create_cidades_table.php' => base_path('database/migrations').date('Y_m_d_His_').'create_cidades_table.php',
+            $database . 'migrations/create_cidades_table.php' => base_path('database/migrations/').date('Y_m_d_His_').'create_cidades_table.php',
             $database . 'seeds' => base_path('database/seeds'),
         ]);
     }
