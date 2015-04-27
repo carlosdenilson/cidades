@@ -15,8 +15,10 @@ Importe migrations/seeds
 Execute
 
     $ php artisan migrate --seed="CidadesSeeder"
+    
+### Model Laraerp\Cidade
 
-O model `Laraerp\Cidade` já está disponível:
+O model `Laraerp\Cidade` já está disponível para uso:
 
     <?php
     
@@ -30,3 +32,17 @@ O model `Laraerp\Cidade` já está disponível:
     
         protected $fillable = ['nome', 'uf'];
     }
+     
+### Rotas
+
+As rotas abaixo já estão disponíveis para uso:
+
+    <?php
+    
+    Route::get('/ufs/', function($uf = null){
+        return response()->json(\Laraerp\Cidade::select('uf')->distinct('uf')->orderBy('uf')->get());
+    });
+    
+    Route::get('/cidades/{uf}', function($uf = null){
+        return response()->json(\Laraerp\Cidade::where('uf', $uf)->orderBy('nome')->get());
+    });
