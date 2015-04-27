@@ -25,7 +25,9 @@ class CidadesServiceProvider extends ServiceProvider {
         $this->publishes([
             $database . 'migrations/create_cidades_table.php' => base_path('database/migrations/').date('Y_m_d_His_').'create_cidades_table.php',
             $database . 'seeds' => base_path('database/seeds'),
+            __DIR__ . '/../../../public' => base_path('public/vendor/laraerp-cidades'),
         ]);
+
 
         include __DIR__ . '/../Http/routes.php';
     }
