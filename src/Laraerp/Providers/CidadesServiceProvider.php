@@ -26,6 +26,8 @@ class CidadesServiceProvider extends ServiceProvider {
             $database . 'migrations/create_cidades_table.php' => base_path('database/migrations/').date('Y_m_d_His_').'create_cidades_table.php',
             $database . 'seeds' => base_path('database/seeds'),
         ]);
+
+        include __DIR__ . '/../Http/routes.php';
     }
 
     /**
