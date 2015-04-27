@@ -46,3 +46,24 @@ As rotas abaixo já estão disponíveis para uso:
     Route::get('/cidades/{uf}', function($uf = null){
         return response()->json(\Laraerp\Cidade::where('uf', $uf)->orderBy('nome')->get());
     });
+     
+### jQuery helper
+
+Se desejar, um plugin está disponível para carregar seus selectBoxes via ajax.
+
+Adicione o `cidades.js`
+
+    <script src="/vendor/laraerp-cidades/cidades.js"></script>
+    
+HTML:
+
+    <select id="uf" default="MG"></select>
+    <select id="cidade"></select>
+
+JS:
+
+    $('#uf').ufs({
+        onChange: function(uf){
+            $('#cidade').cidades({uf: uf});
+        }
+    });
